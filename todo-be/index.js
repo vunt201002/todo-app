@@ -10,13 +10,13 @@ const app = express();
 app.use(express.json());
 app.use(cors({
 
-    origin: ["http://localhost:3000", "https://todo-5o0o.onrender.com"],
+    origin: ["http://localhost:3000", "https://todo-app-n6vh.onrender.com"],
 }
 ));
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'https://todo-5o0o.onrender.com');
+    res.setHeader('Access-Control-Allow-Origin', 'https://todo-app-n6vh.onrender.com');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');

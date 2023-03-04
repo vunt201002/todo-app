@@ -15,7 +15,7 @@ function App() {
 		e.preventDefault();
 
 		try {
-			const res = await axios.post("https://todo-api-32c3.onrender.com/v1/api/item", { item: itemText });
+			const res = await axios.post("https://todo-app-api-qeg4.onrender.com/v1/api/item", { item: itemText });
 			setListItems(prev => [...prev, res.data]);
 			setItemText('');
 			inputRef.current.focus();
@@ -26,7 +26,7 @@ function App() {
 
 	const deleteItem = async (id) => {
 		try {
-			await axios.delete(`https://todo-api-32c3.onrender.com/v1/api/item/${id}`);
+			await axios.delete(`https://todo-app-api-qeg4.onrender.com/v1/api/item/${id}`);
 			const newListItem = listItems.filter(item => item._id !== id);
 			setListItems(newListItem);
 		} catch (err) {
@@ -38,7 +38,7 @@ function App() {
 		e.preventDefault();
 
 		try {
-			await axios.put(`https://todo-api-32c3.onrender.com/v1/api/item/${isUpdating}`, { item: updateItemText });
+			await axios.put(`https://todo-app-api-qeg4.onrender.com/v1/api/item/${isUpdating}`, { item: updateItemText });
 			const updatedItemIndex = listItems.findIndex(item => item._id === isUpdating);
 			const updatedItem = listItems[updatedItemIndex].item = updateItemText;
 			setUpdateItemText('');
@@ -68,7 +68,7 @@ function App() {
 	useEffect(() => {
 		const getItemList = async () => {
 			try {
-				const res = await axios.get("https://todo-api-32c3.onrender.com/v1/api/items");
+				const res = await axios.get("https://todo-app-api-qeg4.onrender.com/v1/api/items");
 				setListItems(res.data);
 			} catch (err) {
 				console.log(err);
